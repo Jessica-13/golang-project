@@ -4,6 +4,18 @@ import (
 	"fmt"
 )
 
+/*
+		Graph initialization
+*/
+
+
+
+/*
+		Dijkstra implementation 
+*/
+
+
+
 type line struct {
 	id string
 	predecessor string
