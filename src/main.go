@@ -10,6 +10,10 @@ import (
 
 /*
 		Dijkstra integration <- calculDisMin.go
+
+		-> Need return: 	ex_val_id := [n]string{}
+							ex_val_predecessor := [n]string{}
+							ex_val_distance := [n]int{}
 */
 
 type line struct {
@@ -33,6 +37,7 @@ func (l *line) setDistance(distance int) {
 func (l *line) describe() {
 	fmt.Printf("  %v -      %v      -    %v \n", l.id, l.predecessor, l.distance)
   }
+  
 
 func main() {
 	//test values
@@ -40,6 +45,7 @@ func main() {
 	ex_val_predecessor := [5]string{"R", "C", "D", "C", "C"}
 	ex_val_distance := [5]int{1, 3, 2, 3, 3}
 	
+	fmt.Println("_____________________________")
 	fmt.Println(" id - predecessor - distance ")
 	fmt.Println("_____________________________")
 	for i := 0; i < 5; i++ {
