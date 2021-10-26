@@ -11,10 +11,8 @@ import (
 
 
 /*
-		Dijkstra implementation 
+		Dijkstra integration <- calculDisMin.go
 */
-
-
 
 type line struct {
 	id string
