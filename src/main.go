@@ -29,8 +29,14 @@ func (l *line) setDistance(distance int) {
 func main() {
 	ll := &line{id: "A", predecessor: "R", distance: 1}
 	ll.describe()
-	//ll.setDistance(3)
-	//fmt.Println(ll.id)
-	//ll.setPredecessor("D")
-	//fmt.Println(ll.predecessor)
+	//declaration empty slice
+	var ex_val_distance []int										//ex_val_distance = make([]int,3,8)
+	// join element 10
+	ex_val_distance=append(ex_val_distance,10)
+	// join element 10
+	ex_val_distance=append(ex_val_distance,20)
+	// print content and dimensions
+	fmt.Println(ex_val_distance)
+	fmt.Println(len(ex_val_distance))	//length
+	fmt.Println(cap(ex_val_distance))	//capacity
   }
