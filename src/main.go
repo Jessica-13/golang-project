@@ -29,9 +29,6 @@ func (h minPath) Swap(i, j int)      {
 
 func (h *minPath) Push(x interface{}) {
     *h = append(*h, x.(path))
-	fmt.Println(" resutl push *h : ", *h)
-	//fmt.Println(" resutl push x.(path) : ", x.(path))
-	fmt.Println(" ___ ")
 }
 
 func (h *minPath) Pop() interface{} {
