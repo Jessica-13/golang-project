@@ -4,6 +4,7 @@ import hp "container/heap"
 
 import (
 	"fmt"
+	//"math/rand"
 )
 
 // heap
@@ -19,9 +20,6 @@ func (h minPath) Len() int {
 }
 
 func (h minPath) Less(i, j int) bool { 
-	fmt.Println("h[i]", h[i])
-	fmt.Println("h[j]", h[j])
-	fmt.Println("h[i].value < h[j].value", h[i].value < h[j].value)
 	return h[i].value < h[j].value 
 }
 
@@ -31,6 +29,9 @@ func (h minPath) Swap(i, j int)      {
 
 func (h *minPath) Push(x interface{}) {
     *h = append(*h, x.(path))
+	fmt.Println(" resutl push *h : ", *h)
+	//fmt.Println(" resutl push x.(path) : ", x.(path))
+	fmt.Println(" ___ ")
 }
 
 func (h *minPath) Pop() interface{} {
@@ -61,6 +62,7 @@ func (h *heap) pop() path {
 // END heap
 
 // graphe 
+
 type edge struct {
     node   string
     weight int
@@ -116,6 +118,8 @@ func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the sho
 
 // END graph
 
+
+/* SECTION OUTPUT
 type line struct {
 	id string
 	predecessor string
@@ -137,10 +141,13 @@ func (l *line) setDistance(distance int) {
 func (l *line) describe() {
 	fmt.Printf("  %v -      %v      -    %v \n", l.id, l.predecessor, l.distance)
   }
+
+ END SECTION OUTPUT
+ */
   
 
 func main() {
-	//test values
+	/*test values
 	ex_val_id := [5]string{"A", "B", "C", "G", "F"}
 	ex_val_predecessor := [5]string{"R", "C", "D", "C", "C"}
 	ex_val_distance := [5]int{1, 3, 2, 3, 3}
@@ -151,21 +158,35 @@ func main() {
 	for i := 0; i < 5; i++ {
 		ll := &line{id: ex_val_id[i], predecessor: ex_val_predecessor[i], distance: ex_val_distance[i]}
 		ll.describe()
-	}	
+	}*/
 
 	fmt.Println("Dijkstra")
     // Example
     graph := newGraph()
+
+	
     graph.addEdge("S", "B", 4)
     graph.addEdge("S", "C", 2)
     graph.addEdge("B", "C", 1)
     graph.addEdge("B", "D", 5)
-    graph.addEdge("C", "D", 8)
+    
+	/*
+	graph.addEdge("C", "D", 8)
     graph.addEdge("C", "E", 10)
     graph.addEdge("D", "E", 2)
     graph.addEdge("D", "T", 6)
     graph.addEdge("E", "T", 2)
     fmt.Println(graph.getPath("S", "T"))
-
+	*/
+	fmt.Println(graph.getPath("S", "D"))
+	
+/* BIGGER GRAPH : to see later
+	min := 1
+	max := 20
+	for i := 0; i < 20; i++ {
+		dist = rand.Intn(max - min) + min)
+		graph.addEdge("S", "B", dist)
+	}	
+*/
 
   }
