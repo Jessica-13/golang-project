@@ -64,9 +64,14 @@ input  -> h (minPath type)
 output -> If the second h[j] is the shorter one, 
           inversion of the two to be able to compare it with the next value
 */
-func (h minPath) Swap(i, j int)      { 
+func (h minPath) Swap(i, j int) { 
 	h[i], h[j] = h[j], h[i] 
 }
+
+/* Pointer on Golang
+The & operator is used to find the memory address of a variable.
+The * operator gives access to the values present in the memory address.
+*/
 
 /*
 */
@@ -91,7 +96,10 @@ type heap struct {
     values *minPath
 }
 
-/*
+/* Initialization of a new heap
+ return -> values of the heap
+ Because :
+ *heap <= &heap{values: &minPath{}}
 */
 func newHeap() *heap {
     return &heap{values: &minPath{}}
@@ -122,19 +130,37 @@ type edge struct {
     weight int
 }
 
-/*
+/* Map. 
+A Go map is a lookup table. 
+It returns a value from a key—or tests if one exists. 
+(We specify the type of keys and values in a map.)
+
+A map cannot be sorted directly. 
+But if we get a slice of the keys from a map, 
+we can sort that slice and loop over it, accessing the map's values.
+
+To get an element, we access it by name. 
+To loop over the entire map's contents, we use a for-loop—each key 
+and value can be accessed separately.
+*/
+
+/* Definition of "graph" structure :
+non-default type consisting of map like (map[key-type]val-type)
+  - key-type -> string
+  - val-type -> []edge -> node   string
+                          weight int
 */
 type graph struct {
     nodes map[string][]edge
 }
 
-/*
+/* Initialization of a new graph
 */
 func newGraph() *graph {
     return &graph{nodes: make(map[string][]edge)}
 }
 
-/*
+/* 
 */
 func (g *graph) addEdge(origin, destiny string, weight int) {
     g.nodes[origin] = append(g.nodes[origin], edge{node: destiny, weight: weight})
@@ -173,10 +199,8 @@ func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the sho
                 h.push(path{value: p.value + e.weight, nodes: append([]string{}, append(p.nodes, e.node)...)})
             }
         }
-
         visited[node] = true
     }
-
     return 0, nil
 }
 
