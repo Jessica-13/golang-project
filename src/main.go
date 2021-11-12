@@ -61,6 +61,7 @@ func (h minPath) Less(i, j int) bool {
 
 /* Definition anonymous fonction that : 
 input  -> h (minPath type)
+-> call the Swap() fonction
 output -> If the second h[j] is the shorter one, 
           inversion of the two to be able to compare it with the next value
 */
@@ -160,7 +161,9 @@ func newGraph() *graph {
     return &graph{nodes: make(map[string][]edge)}
 }
 
-/* 
+/* Definition anonymous fonction that : 
+input  -> g (*graph type)
+output -> 
 */
 func (g *graph) addEdge(origin, destiny string, weight int) {
     g.nodes[origin] = append(g.nodes[origin], edge{node: destiny, weight: weight})
