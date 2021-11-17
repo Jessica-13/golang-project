@@ -179,27 +179,57 @@ func (g *graph) getEdges(node string) []edge {
 /*
 */
 func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the shortest path between origin and destiny
-    h := newHeap()
-    h.push(path{value: 0, nodes: []string{origin}})
-    visited := make(map[string]bool)
+    h := newHeap()  // definition of a new heap named h -> call fonction newHeap()
+    // fmt.Println("h before first push : ", h) -> &{0xc00000c090}
+    // fmt.Println("h before first push : ", *h) -> same
+    // fmt.Println("h before first push : ", &h) -> 0xc00000e030
+    h.push(path{value: 0, nodes: []string{origin}}) 
+    // fmt.Println("h before first push : ", *h) -> same
+    // fmt.Println("h after first push : ", h) -> &{0xc00000c090}
+    // fmt.Println("h before first push : ", &h) -> 0xc00000e030
+    visited := make(map[string]bool)    // Mark all nodes unvisited. 
 
+    // nodes control :
     for len(*h.values) > 0 {
         // Find the nearest yet to visit node
         p := h.pop()
+        /* fmt.Println("try p : ", p)
+        try p :  {0 [S]}
+        try p :  {2 [S C]}
+        try p :  {3 [S C B]}
+        try p :  {4 [S B]}
+        try p :  {8 [S C B D]}
+        */
         node := p.nodes[len(p.nodes)-1]
+        /* fmt.Println("try node : ", node)
+        try node :  S
+        try node :  B
+        try node :  B
+        try node :  D
+        */
 
-        if visited[node] {
-            continue
+        if visited[node] {  // if already visited
+            continue    // do nothing
         }
 
-        if node == destiny {
+        if node == destiny {    // when we reached the destination
+            // fmt.Println("try : ", p.value, p.nodes) -> try :  8 [S C B D]
+            // p.value = 8
+            // p.nodes = [S C B D]
             return p.value, p.nodes
         }
 
         for _, e := range g.getEdges(node) {
-            if !visited[e.node] {
-                // We calculate the total spent so far plus the cost and the path of getting here
+            if !visited[e.node] {   //  if not visited yet
                 h.push(path{value: p.value + e.weight, nodes: append([]string{}, append(p.nodes, e.node)...)})
+                // h.push() -> assign the value
+                // path{}   ->
+                /* 
+                We calculate the total spent so far plus the cost and the path of getting here :
+                
+                (cost) value: p.value + e.weight
+                (path) nodes: append([]string{}, append(p.nodes, e.node)...)
+                */
             }
         }
         visited[node] = true
