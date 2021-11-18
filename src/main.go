@@ -223,16 +223,79 @@ func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the sho
             if !visited[e.node] {   //  if not visited yet
                 h.push(path{value: p.value + e.weight, nodes: append([]string{}, append(p.nodes, e.node)...)})
                 // h.push() -> assign the value
-                // path{}   ->
+                // path{}   -> for the path
                 /* 
                 We calculate the total spent so far plus the cost and the path of getting here :
                 
                 (cost) value: p.value + e.weight
                 (path) nodes: append([]string{}, append(p.nodes, e.node)...)
                 */
+
+                /*
+                fmt.Println(" try h : ", h)
+                try h :  &{0xc00000c090}
+                try h :  &{0xc00000c090}
+                try h :  &{0xc00000c090}
+                try h :  &{0xc00000c090}
+                */
+
+                /*
+                fmt.Println(" try path : ", p.value)
+                try path :  0
+                try path :  0
+                try path :  2
+                try path :  3
+                */
+
+                /*
+                fmt.Println(" try path : ", e.weight)
+                try path :  4
+                try path :  2
+                try path :  1
+                try path :  5
+                */
+
+                /*
+                fmt.Println(" try path : ", p.value + e.weight)
+                try path :  4
+                try path :  2
+                try path :  3
+                try path :  8
+                */
+
+                /*
+                fmt.Println(" try path : ", append([]string{}, append(p.nodes, e.node)...))
+                try path :  [S B]
+                try path :  [S C]
+                try path :  [S C B]
+                try path :  [S C B D]
+                */
+
+                /*
+                fmt.Println(" try path : ", append([]string{}))
+                try path :  []
+                try path :  []
+                try path :  []
+                try path :  []
+                */
+
+                /*
+                fmt.Println(" try path : ", append(p.nodes, e.node)...)
+                ./main.go:282:28: too many arguments in call to fmt.Println
+                have (string, ...string)
+                want (...interface {})
+                */
+
+                /*
+                fmt.Println(" try path : ", append(p.nodes, e.node))
+                try path :  [S B]
+                try path :  [S C]
+                try path :  [S C B]
+                try path :  [S C B D]
+                */
             }
         }
-        visited[node] = true
+        visited[node] = true    // once a node is checked, it's marked as visited
     }
     return 0, nil
 }
@@ -240,7 +303,7 @@ func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the sho
 // END graph definition
 
 
-/* START OUTPUT definition
+// START OUTPUT definition
 
 type line struct {
 	id string
@@ -264,24 +327,10 @@ func (l *line) describe() {
 	fmt.Printf("  %v -      %v      -    %v \n", l.id, l.predecessor, l.distance)
   }
 
- END SECTION OUTPUT
- */
+ // END SECTION OUTPUT
   
 
 func main() {
-	/*test values
-	ex_val_id := [5]string{"A", "B", "C", "G", "F"}
-	ex_val_predecessor := [5]string{"R", "C", "D", "C", "C"}
-	ex_val_distance := [5]int{1, 3, 2, 3, 3}
-	
-	fmt.Println("_____________________________")
-	fmt.Println(" id - predecessor - distance ")
-	fmt.Println("_____________________________")
-	for i := 0; i < 5; i++ {
-		ll := &line{id: ex_val_id[i], predecessor: ex_val_predecessor[i], distance: ex_val_distance[i]}
-		ll.describe()
-	}*/
-
 	fmt.Println("Dijkstra")
     // Example
     graph := newGraph() 
@@ -301,6 +350,20 @@ func main() {
 	*/
 	fmt.Println(graph.getPath("S", "D"))
 	
+	/*test values
+	ex_val_id := [5]string{"A", "B", "C", "G", "F"}
+	ex_val_predecessor := [5]string{"R", "C", "D", "C", "C"}
+	ex_val_distance := [5]int{1, 3, 2, 3, 3}
+	*/
+    /*
+	fmt.Println("_____________________________")
+	fmt.Println(" id - predecessor - distance ")
+	fmt.Println("_____________________________")
+	for i := 0; i < 5; i++ {
+		ll := &line{id: ex_val_id[i], predecessor: ex_val_predecessor[i], distance: ex_val_distance[i]}
+		ll.describe()
+	}
+    */
 /* BIGGER GRAPH : to see later
 	min := 1
 	max := 20
