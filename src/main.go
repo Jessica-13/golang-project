@@ -509,7 +509,7 @@ func main() {
     // BIGGER GRAPH :
     min := 1
     max := 20
-    for i := 0; i < 5; i++ {
+    for i := 0; i < 20; i++ {
         vertex1 := RandStringBytes(1)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
@@ -531,9 +531,19 @@ func main() {
     graph.addEdge("E", "T", 2)
     fmt.Println(graph.getPath("S", "T"))
 	*/
+
+    // var then variable name then variable type
+    var originVertexInput string 
+    var destinationVertexInput string
+
     fmt.Println(" ")
+    fmt.Println("Please enter origin vertex  : ") 
+    fmt.Scanln(&originVertexInput)      // Taking input from user
+    fmt.Println("Please enter destination vertex  : ")  
+    fmt.Scanln(&destinationVertexInput) // Taking input from user
+
     fmt.Print("Shortest path calculation result (distance - path) : ")
-	//fmt.Println(graph.getPath("S", "D"))
+	fmt.Println(graph.getPath(originVertexInput, destinationVertexInput))
     fmt.Println(" ")
 
 }
