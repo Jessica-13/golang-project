@@ -4,7 +4,7 @@ import hp "container/heap"
 
 import (
 	"fmt"
-	//"math/rand"
+	"math/rand"
 )
 
 // START heap definition
@@ -480,34 +480,20 @@ func (g *graph) getPath(origin, destiny string) (int, []string) { //gets the sho
 // END graph definition
 
 
-// START OUTPUT definition
+// MAKE BIGGER GRAPH :
+const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"  // 52 characters
 
-type line struct {
-	id string
-	predecessor string
-	distance int
-  }
+func RandStringBytes(n int) string {
+    b := make([]byte, n)
+    for i := range b {
+        b[i] = letterBytes[rand.Intn(len(letterBytes))]
+    }
+    return string(b)
+}
 
-func (l *line) setId(id string) {
-	l.id = id
-  }
-  
-func (l *line) setPredecessor(predecessor string) {
-	l.predecessor = predecessor
-  }  
-
-func (l *line) setDistance(distance int) {
-	l.distance = distance
-  } 
-
-func (l *line) describe() {
-	fmt.Printf("  %v -      %v      -    %v \n", l.id, l.predecessor, l.distance)
-  }
-
- // END SECTION OUTPUT
-  
 
 func main() {
+    fmt.Println(" ")
 	fmt.Println("Dijkstra")
     fmt.Println(" ")
     fmt.Println(" ")
@@ -517,15 +503,27 @@ func main() {
     fmt.Println(" id - predecessor - distance ")
     fmt.Println("_____________________________")
 
-    // Example
+   
     graph := newGraph() 
 
+    // BIGGER GRAPH :
+    min := 1
+    max := 20
+    for i := 0; i < 5; i++ {
+        vertex1 := RandStringBytes(1)
+        vertex2 := RandStringBytes(1)
+        distance := rand.Intn(max - min) + min
+        //fmt.Println(vertex1, vertex2, distance)
+        graph.addEdge(vertex1, vertex2, distance)
+    }	
+
+    /* Example
     graph.addEdge("S", "B", 4)
     graph.addEdge("S", "C", 2)
     graph.addEdge("B", "C", 1)
     graph.addEdge("B", "D", 5)
     
-	/*
+	
 	graph.addEdge("C", "D", 8)
     graph.addEdge("C", "E", 10)
     graph.addEdge("D", "E", 2)
@@ -535,38 +533,7 @@ func main() {
 	*/
     fmt.Println(" ")
     fmt.Print("Shortest path calculation result (distance - path) : ")
-	fmt.Println(graph.getPath("S", "D"))
+	//fmt.Println(graph.getPath("S", "D"))
     fmt.Println(" ")
-	
-	/*test values
-	ex_val_id := [5]string{"A", "B", "C", "G", "F"}
-	ex_val_predecessor := [5]string{"R", "C", "D", "C", "C"}
-	ex_val_distance := [5]int{1, 3, 2, 3, 3}
-	*/
-    /*
-    
-	fmt.Println("_____________________________")
-	fmt.Println(" id - predecessor - distance ")
-	fmt.Println("_____________________________")
-	for i := 0; i < 5; i++ {
-		ll := &line{id: ex_val_id[i], predecessor: ex_val_predecessor[i], distance: ex_val_distance[i]}
-		ll.describe()
-	}
-
-
-    fmt.Println(" TRY ")
-    for _, e := range g.getEdges(node) {
-        fmt.Println(g.node)
-	}
-    */
-    
-/* BIGGER GRAPH : to see later
-	min := 1
-	max := 20
-	for i := 0; i < 20; i++ {
-		dist = rand.Intn(max - min) + min)
-		graph.addEdge("S", "B", dist)
-	}	
-*/
 
 }
