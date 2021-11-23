@@ -537,9 +537,9 @@ func main() {
     var destinationVertexInput string
 
     fmt.Println(" ")
-    fmt.Println("Please enter origin vertex  : ") 
+    fmt.Print("Please enter origin vertex  : ") 
     fmt.Scanln(&originVertexInput)      // Taking input from user
-    fmt.Println("Please enter destination vertex  : ")  
+    fmt.Print("Please enter destination vertex  : ")  
     fmt.Scanln(&destinationVertexInput) // Taking input from user
 
     fmt.Print("Shortest path calculation result (distance - path) : ")
