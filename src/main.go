@@ -42,6 +42,33 @@ input  -> h (minPath type)
 output -> length of h (int type) 
 */
 func (h minPath) Len() int { 
+    /*
+    fmt.Println("try h : ", h) 
+    try h :  [{0 [S]}]
+    try h :  [{0 [S]}]
+    try h :  [{4 [S B]}]
+    try h :  [{4 [S B]} {2 [S C]}]
+    try h :  [{2 [S C]} {4 [S B]}]
+    try h :  [{4 [S B]} {3 [S C B]}]
+    try h :  [{3 [S C B]} {4 [S B]}]
+    try h :  [{4 [S B]} {8 [S C B D]}]
+    try h :  [{4 [S B]} {8 [S C B D]}]
+    try h :  [{8 [S C B D]}]
+    */
+    
+    /*
+    fmt.Println("try len(h) : ", h) 
+    try len(h) :  [{0 [S]}]
+    try len(h) :  [{0 [S]}]
+    try len(h) :  [{4 [S B]}]
+    try len(h) :  [{4 [S B]} {2 [S C]}]
+    try len(h) :  [{2 [S C]} {4 [S B]}]
+    try len(h) :  [{4 [S B]} {3 [S C B]}]
+    try len(h) :  [{3 [S C B]} {4 [S B]}]
+    try len(h) :  [{4 [S B]} {8 [S C B D]}]
+    try len(h) :  [{4 [S B]} {8 [S C B D]}]
+    try len(h) :  [{8 [S C B D]}]
+    */
 	return len(h) 
 }
 
@@ -56,7 +83,22 @@ h[i] -> case at index i of list h
 .valure -> access to attribute value of the case h[]
 */
 func (h minPath) Less(i, j int) bool { 
-	return h[i].value < h[j].value 
+    /*
+    fmt.Println("try h[i].value : ", h[i].value)
+    fmt.Println("try h[j].value : ", h[j].value)
+    fmt.Println("try h[i].value < h[j].value : ", h[i].value < h[j].value)
+
+    try h[i].value :  2
+    try h[j].value :  4
+    try h[i].value < h[j].value :  true
+    try h[i].value :  3
+    try h[j].value :  4
+    try h[i].value < h[j].value :  true
+    try h[i].value :  8
+    try h[j].value :  4
+    try h[i].value < h[j].value :  false
+    */
+    return h[i].value < h[j].value 
 }
 
 /* Definition anonymous fonction that : 
@@ -66,6 +108,25 @@ output -> If the second h[j] is the shorter one,
           inversion of the two to be able to compare it with the next value
 */
 func (h minPath) Swap(i, j int) { 
+    /*
+    fmt.Println("try : ", h[i])
+    fmt.Println("try : ", h[j])
+
+    try :  {0 [S]}
+    try :  {0 [S]}
+    try :  {4 [S B]}
+    try :  {2 [S C]}
+    try :  {2 [S C]}
+    try :  {4 [S B]}
+    try :  {4 [S B]}
+    try :  {3 [S C B]}
+    try :  {3 [S C B]}
+    try :  {4 [S B]}
+    try :  {4 [S B]}
+    try :  {8 [S C B D]}
+    try :  {8 [S C B D]}
+    try :  {8 [S C B D]}
+    */
 	h[i], h[j] = h[j], h[i] 
 }
 
@@ -78,15 +139,60 @@ The * operator gives access to the values present in the memory address.
 */
 func (h *minPath) Push(x interface{}) {
     *h = append(*h, x.(path))
+    /*
+    fmt.Println("try : ", *h)
+
+    try :  [{0 [S]}]
+    try :  [{4 [S B]}]
+    try :  [{4 [S B]} {2 [S C]}]
+    try :  [{4 [S B]} {3 [S C B]}]
+    try :  [{4 [S B]} {8 [S C B D]}]
+    */
 }
 
-/*
+/* Find the shortest path
+old : is the list of the analyzed paths
+n   : is an index representing the length of old [1,2]
+x   : represents the element of old at the index (n-1) ie [0,1]
 */
 func (h *minPath) Pop() interface{} {
     old := *h
+    /*
+    fmt.Println("try : ", *h)
+    try :  [{0 [S]}]
+    try :  [{4 [S B]} {2 [S C]}]
+    try :  [{4 [S B]} {3 [S C B]}]
+    try :  [{8 [S C B D]} {4 [S B]}]
+    try :  [{8 [S C B D]}]
+    */
     n := len(old)
+    /*
+    fmt.Println("try : ", n)
+    try :  1
+    try :  2
+    try :  2
+    try :  2
+    try :  1
+    */
     x := old[n-1]
+    /*
+    fmt.Println("try : ", x)
+    try :  {0 [S]}
+    try :  {2 [S C]}
+    try :  {3 [S C B]}
+    try :  {4 [S B]}
+    try :  {8 [S C B D]}
+    */
     *h = old[0 : n-1]
+    /*
+    fmt.Println("try : ", *h)
+  
+    try :  []
+    try :  [{4 [S B]}]
+    try :  [{4 [S B]}]
+    try :  [{8 [S C B D]}]
+    try :  []
+    */
     return x
 }
 
@@ -103,6 +209,11 @@ type heap struct {
  *heap <= &heap{values: &minPath{}}
 */
 func newHeap() *heap {
+    /*
+    fmt.Println("try : ", heap{values: &minPath{}})
+
+    try :  {0xc00000c090}
+    */
     return &heap{values: &minPath{}}
 }
 
@@ -110,12 +221,46 @@ func newHeap() *heap {
 */
 func (h *heap) push(p path) {
     hp.Push(h.values, p)
+    /*
+    fmt.Println("try h.values : ", *h.values)   // the possibilities
+
+    try h.values :  [{0 [S]}]
+    try h.values :  [{4 [S B]}]
+    try h.values :  [{2 [S C]} {4 [S B]}]
+    try h.values :  [{3 [S C B]} {4 [S B]}]
+    try h.values :  [{4 [S B]} {8 [S C B D]}]
+
+    fmt.Println("try p : ", p)  // the chosen path
+
+    try p :  {0 [S]}
+    try p :  {4 [S B]}
+    try p :  {2 [S C]}
+    try p :  {3 [S C B]}
+    try p :  {8 [S C B D]}
+    */
 }
 
 /*
 */
 func (h *heap) pop() path {
     i := hp.Pop(h.values)
+    /*
+    fmt.Println("try i : ", i)
+
+    try i :  {0 [S]}
+    try i :  {2 [S C]}
+    try i :  {3 [S C B]}
+    try i :  {4 [S B]}
+    try i :  {8 [S C B D]}
+    
+    fmt.Println("try i.(path) : ", i.(path))
+
+    try i.(path) :  {0 [S]}
+    try i.(path) :  {2 [S C]}
+    try i.(path) :  {3 [S C B]}
+    try i.(path) :  {4 [S B]}
+    try i.(path) :  {8 [S C B D]}
+    */
     return i.(path)
 }
 
@@ -161,18 +306,50 @@ func newGraph() *graph {
     return &graph{nodes: make(map[string][]edge)}
 }
 
-/* Definition anonymous fonction that : 
+/* Definition anonymous fonction that set edges : 
 input  -> g (*graph type)
-output -> 
+output -> Adds in sequence to g.nodes[origin] an edge variable consisting of :
+            a node (valeur destiny) 
+            and a weight (valeur weight)
+Almost the same for g.nodes[destiny] :
+            a node (valeur origin) 
+            and a weight (valeur weight)
 */
 func (g *graph) addEdge(origin, destiny string, weight int) {
     g.nodes[origin] = append(g.nodes[origin], edge{node: destiny, weight: weight})
+    /*
+    fmt.Println("try g.nodes[origin] : ", g.nodes[origin])
+
+    try g.nodes[origin] :  [{B 4}]
+    try g.nodes[origin] :  [{B 4} {C 2}]
+    try g.nodes[origin] :  [{S 4} {C 1}]
+    try g.nodes[origin] :  [{S 4} {C 1} {D 5}]  
+    */
     g.nodes[destiny] = append(g.nodes[destiny], edge{node: origin, weight: weight})
+    /*
+    fmt.Println("try g.nodes[destiny] : ", g.nodes[destiny])
+
+    try g.nodes[destiny] :  [{S 4}]
+    try g.nodes[destiny] :  [{S 2}]
+    try g.nodes[destiny] :  [{S 2} {B 1}]
+    try g.nodes[destiny] :  [{B 5}]
+    */
+
+    // OUTPUT
+	// fmt.Println(g.nodes[origin], "  ", g.nodes[destiny], "  ", weight) // not good
+    fmt.Println(" ", origin, "      ", destiny, "         ", weight)
 }
 
-/*
+/* Definition anonymous fonction that set relations between edges : 
 */
 func (g *graph) getEdges(node string) []edge {
+    /*
+    fmt.Println("try g.nodes[node] : ", g.nodes[node])
+
+    try g.nodes[node] :  [{B 4} {C 2}]          // the neighboring vertices of S
+    try g.nodes[node] :  [{S 2} {B 1}]          // the neighboring vertices of C
+    try g.nodes[node] :  [{S 4} {C 1} {D 5}]    // the neighboring vertices of D
+    */
     return g.nodes[node]
 }
 
@@ -332,6 +509,14 @@ func (l *line) describe() {
 
 func main() {
 	fmt.Println("Dijkstra")
+    fmt.Println(" ")
+    fmt.Println(" ")
+    fmt.Println("Chart description graph")
+    fmt.Println(" ")
+    fmt.Println("_____________________________")
+    fmt.Println(" id - predecessor - distance ")
+    fmt.Println("_____________________________")
+
     // Example
     graph := newGraph() 
 
@@ -348,7 +533,10 @@ func main() {
     graph.addEdge("E", "T", 2)
     fmt.Println(graph.getPath("S", "T"))
 	*/
+    fmt.Println(" ")
+    fmt.Print("Shortest path calculation result (distance - path) : ")
 	fmt.Println(graph.getPath("S", "D"))
+    fmt.Println(" ")
 	
 	/*test values
 	ex_val_id := [5]string{"A", "B", "C", "G", "F"}
@@ -356,6 +544,7 @@ func main() {
 	ex_val_distance := [5]int{1, 3, 2, 3, 3}
 	*/
     /*
+    
 	fmt.Println("_____________________________")
 	fmt.Println(" id - predecessor - distance ")
 	fmt.Println("_____________________________")
@@ -363,7 +552,14 @@ func main() {
 		ll := &line{id: ex_val_id[i], predecessor: ex_val_predecessor[i], distance: ex_val_distance[i]}
 		ll.describe()
 	}
+
+
+    fmt.Println(" TRY ")
+    for _, e := range g.getEdges(node) {
+        fmt.Println(g.node)
+	}
     */
+    
 /* BIGGER GRAPH : to see later
 	min := 1
 	max := 20
@@ -373,4 +569,4 @@ func main() {
 	}	
 */
 
-  }
+}
