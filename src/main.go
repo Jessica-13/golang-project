@@ -509,13 +509,22 @@ func main() {
     // BIGGER GRAPH :
     min := 1
     max := 20
-    for i := 0; i < 10; i++ {
-        vertex1 := RandStringBytes(1)
+    vertex1 := RandStringBytes(1)
+    for i := 0; i < 10; i++ {   // all vertices linked (x10)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
         //fmt.Println(vertex1, vertex2, distance)
         graph.addEdge(vertex1, vertex2, distance)
+        vertex1 = vertex2
     }	
+
+    for i := 0; i < 10; i++ {   // more random connections (x10)
+        vertex1 := RandStringBytes(1)
+        vertex2 := RandStringBytes(1)
+        distance := rand.Intn(max - min) + min
+        graph.addEdge(vertex1, vertex2, distance)
+    }
+
 
     /* Example
     graph.addEdge("S", "B", 4)
