@@ -509,7 +509,7 @@ func main() {
     // BIGGER GRAPH :
     min := 1
     max := 20
-    for i := 0; i < 20; i++ {
+    for i := 0; i < 10; i++ {
         vertex1 := RandStringBytes(1)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
@@ -536,11 +536,33 @@ func main() {
     var originVertexInput string 
     var destinationVertexInput string
 
+    var okOrigin bool
+    okOrigin = true
+    var okDestination bool
+    okDestination = true
+
     fmt.Println(" ")
-    fmt.Print("Please enter origin vertex  : ") 
-    fmt.Scanln(&originVertexInput)      // Taking input from user
-    fmt.Print("Please enter destination vertex  : ")  
-    fmt.Scanln(&destinationVertexInput) // Taking input from user
+    for okOrigin {
+        fmt.Print("Please enter origin vertex  : ") 
+        fmt.Scanln(&originVertexInput)      // Taking input from user 
+        for i := range letterBytes {
+            stringLetterBytes := string(letterBytes[i])
+            if  originVertexInput == stringLetterBytes {
+                okOrigin = false
+            }
+        }
+    }	
+
+    for okDestination {
+        fmt.Print("Please enter destination vertex  : ")  
+        fmt.Scanln(&destinationVertexInput) // Taking input from user
+        for i := range letterBytes {
+            stringLetterBytes := string(letterBytes[i])
+            if  destinationVertexInput == stringLetterBytes {
+                okDestination = false
+            }
+        }
+    }	
 
     fmt.Print("Shortest path calculation result (distance - path) : ")
 	fmt.Println(graph.getPath(originVertexInput, destinationVertexInput))
