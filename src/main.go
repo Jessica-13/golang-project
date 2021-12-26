@@ -491,7 +491,6 @@ func RandStringBytes(n int) string {
     return string(b)
 }
 
-
 func main() {
     fmt.Println(" ")
 	fmt.Println("Dijkstra")
@@ -502,7 +501,6 @@ func main() {
     fmt.Println("_____________________________")
     fmt.Println(" id - predecessor - distance ")
     fmt.Println("_____________________________")
-
    
     graph := newGraph() 
 
@@ -513,12 +511,12 @@ func main() {
     for i := 0; i < 10; i++ {   // all vertices linked (x10)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
-        //fmt.Println(vertex1, vertex2, distance)
+        // fmt.Println(vertex1, vertex2, distance)
         graph.addEdge(vertex1, vertex2, distance)
         vertex1 = vertex2
     }	
 
-    for i := 0; i < 10; i++ {   // more random connections (x10)
+    for i := 0; i < 20; i++ {   // more random connections (x20)
         vertex1 := RandStringBytes(1)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
@@ -576,5 +574,4 @@ func main() {
     fmt.Print("Shortest path calculation result (distance - path) : ")
 	fmt.Println(graph.getPath(originVertexInput, destinationVertexInput))
     fmt.Println(" ")
-
 }
