@@ -1,11 +1,5 @@
 /*
-A very simple TCP server written in Go.
-
-This is a toy project that I used to learn the fundamentals of writing
-Go code and doing some really basic network stuff.
-
-Maybe it will be fun for you to read. It's not meant to be
-particularly idiomatic, or well-written for that matter.
+A TCP server written in Go.
 */
 package main
 
