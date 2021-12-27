@@ -6,10 +6,6 @@ package main
 import hp "container/heap" 
 
 import (
-	"math/rand"
-)
-
-import (
 	"bufio"
 	"flag"
 	"fmt"
@@ -17,6 +13,7 @@ import (
 	"os"
 	"strconv"
 	"time"
+    "math/rand"
 )
 
 // ---
