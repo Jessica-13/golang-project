@@ -38,8 +38,10 @@ func main() {
 
 	for {
 		reader := bufio.NewReader(os.Stdin)
+		fmt.Println("Please enter origin vertex and the destination vertex like 'ab' ")
 		fmt.Print("> ")
 		text, _ := reader.ReadString('\n')
+		// fmt.Print("text : ", text)
 
 		conn.SetWriteDeadline(time.Now().Add(1 * time.Second))
 		_, err := conn.Write([]byte(text))
