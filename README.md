@@ -12,5 +12,9 @@ First, call server.go by `go run server.go` in a terminal. The program establish
 Then, call client.go by `go run client.go` in a new terminal(The server can connect to multiple clients). Client connect to the server from the default port 8000. Once a client has connected, the server terminal will display it. By entering two vertices in the client's terminal, the program allows to obtain the shortest distance between any two vertices entered by the user and shows which vertices the path of this shortest distance passes through. If the user enters a non-existent vertex, the distance will be displayed as 0.
 The solution is accessible via server.go.
 
-
+## Requirements
+Tested on
+```
+go v1.14
+```
 
