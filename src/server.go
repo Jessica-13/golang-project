@@ -352,6 +352,3 @@ func handleMessage(message string, conn net.Conn) string {
 
 	return message
 }
-
-
-    
