@@ -7,5 +7,5 @@ We implement this algorithm through a client-server format.
 - server.go
 
 The solution is accessible via server.go.
-
 # Implementation
+
