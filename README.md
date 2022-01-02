@@ -7,6 +7,13 @@ We implement this algorithm through a client-server format.<br>
 
 The solution is accessible via server.go.
 ## Implementation
-First, call server.go by `go run server.go`. The program first establishes a random chain of ten vertices, each with a random distance assignment between 1 and 20, and then establishes a random connection between twenty pairs of vertices, again with a random distance assignment. This procedure generates a graph. The program allows to obtain the shortest distance between any two vertices entered by the user and shows which vertices the path of this shortest distance passes through. If the user enters a non-existent vertex, the distance will be displayed as 0.<br>
+First, call server.go by `go run server.go` in a terminal. The program establishes a random chain of ten vertices, each with a random distance assignment between 1 and 20, and then establishes a random connection between twenty pairs of vertices, again with a random distance assignment. This procedure generates a graph. These connections is displayed in the terminal. Once the server is starting it will wait for clients to connect from port 8000.<br>
+
+Then, call client.go by `go run client.go` in a new terminal. Client connect to the server from the default port 8000. 
+
+
+
+
+The program allows to obtain the shortest distance between any two vertices entered by the user and shows which vertices the path of this shortest distance passes through. If the user enters a non-existent vertex, the distance will be displayed as 0.
 
 
