@@ -15,6 +15,6 @@ The solution is accessible via server.go.
 ## Requirements
 Tested on
 ```
-go v1.14
+go v1.17
 ```
 
