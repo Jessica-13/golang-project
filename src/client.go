@@ -71,7 +71,7 @@ func readConnection(conn net.Conn) {
 
 			//listen for reply
 			message, _ := bufio.NewReader(conn).ReadString('\n')
-			fmt.Print("Message from server : " + message)
+			fmt.Print(message)
 		}
 	}
 }

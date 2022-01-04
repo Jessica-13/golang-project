@@ -327,7 +327,7 @@ func handleConnection(conn net.Conn, graph *graph) {
         AAA,BBB := graph.getPath(stringOrigin, stringDestination)
         t := strconv.Itoa(AAA)
         justString := strings.Join(BBB, " ")
-        newmessage := strings.ToUpper("Distance : " + t + " - Path : " + justString)
+        newmessage := string("Shortest path calculation result. Distance : " + t + " - Path : " + justString)
         conn.Write([]byte(newmessage + "\n"))
 
 	}
