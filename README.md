@@ -104,3 +104,6 @@ SALMA Bahar <br/>
 SPERA Jessica <br/>
 WAN Zihao <br/>
 
+
+
+<em>  ℹ️ For more information on the project, refer to the Wiki</em>
