@@ -1,6 +1,5 @@
-/*
-A TCP server written in Go.
-*/
+// A TCP server written in Go.
+
 package main
 
 import hp "container/heap" 

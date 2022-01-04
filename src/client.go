@@ -1,6 +1,5 @@
-/*
-A TCP client written in Go.
-*/
+// A TCP client written in Go.
+
 package main
 
 import (
