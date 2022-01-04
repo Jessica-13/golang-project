@@ -45,6 +45,9 @@ This can be useful when coding algorithms that require certain things to process
 <hr />
 
 ## Implementation
+
+`The proposed demo is made for simplicity with a graph with 30 links.`
+
 First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client connect to the server from the default port 8000.</em>
 The program establishes a random graph which is displayed in the server terminal. 
 Each vertex is assigned a random distance assignment between 1 and 20, and random connections are assigned between the vertices. <br>
