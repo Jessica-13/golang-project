@@ -49,9 +49,18 @@ First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client
 The program establishes a random graph which is displayed in the server terminal. 
 Each vertex is assigned a random distance assignment between 1 and 20, and random connections are assigned between the vertices. <br>
 
-Then, call client.go by `go run client.go -host localhost -port 8000` in a new terminal. <em>(The server can connect to multiple clients)</em>. 
+<a href="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A.svg" /></a>
+
+
+Then, call client.go by `go run client.go -host localhost -port 8000` in a new terminal.
 Once a client has connected, the server terminal will display it. By entering two vertices in the client's terminal, the program allows to obtain the shortest distance between any two vertices entered by the user and shows which vertices the path of this shortest distance passes through. 
 If the user enters a non-existent vertex, the distance will be displayed as 0.
+
+<a href="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT.svg" /></a>
+
+The server can connect to multiple clients. 
+
+<a href="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7.svg" /></a>
 
 The solution is accessible by both server.go and client.go.
 
