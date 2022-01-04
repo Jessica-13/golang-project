@@ -75,7 +75,14 @@ go v1.17
 
 ## Credits
 
-<strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences, Department of Telecommunications, Services and Uses, 3TC, group 1.
+![alt text](http://www.insa-lyon.fr/sites/www.insa-lyon.fr/files/logo-coul.jpg)
+
+<p align="center">
+  <img src="/media/jess/Windows-SSD/Users/jessi/OneDrive/Desktop/CTC/usage_logo.jpg" width="350" title="hover text">
+  <img src="/media/jess/Windows-SSD/Users/jessi/OneDrive/Desktop/CTC/usage_logo.jpg" width="350" alt="accessibility text">
+</p>
+
+<strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences, Department of Telecommunications, Services and Uses, 3TC, Group 1.
 
 Project related to the ELP module (Ecosystème des langages de programmation) - Golang.
 
