@@ -3,34 +3,31 @@
 
 -------------------------------------------------------------------- ENGLISH VERSION
 
-Dijkstra's algorithm to find the shortest path between a and b. 
+Dijkstra's algorithm to find the shortest path between two points: A and B. 
 
 It picks the unvisited node with the lowest distance, 
 calculates the distance through it to each unvisited neighbor, 
 and updates the neighbor's distance if smaller.
 
-
+STEPS:
  1) Mark all nodes unvisited. 
  
  2) Create a set of all the unvisited nodes called the unvisited set, 
  in our case we are going to use a set for visited nodes, 
  not for unvisited nodes.
 
-
  3) Assign to every node a tentative distance value: 
  set it to zero for our initial node. 
  Set the initial node as current.
 
-
  4) For the current node, consider all of its unvisited neighbors and calculate their tentative distances through the current node. 
+ 
  5) Compare the newly calculated tentative distance to the current assigned value and assign the smaller one.
  Otherwise, keep the current value.
-
 
  6) When we are done considering all of the unvisited neighbors of the current node, 
  mark the current node as visited. 
  A visited node will never be checked again.
-
 
  7) Select next unvisited node that is marked with the smallest tentative distance, 
  set it as the new "current node", 
@@ -39,19 +36,16 @@ and updates the neighbor's distance if smaller.
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
 -------------------------------------------------------------------- LINK 
 
-Heap: https://www.youtube.com/watch?v=2DmK_H7IdTo&ab_channel=MichaelSambol
-
+=> Dijkstra's Algorithm, can be OPTIMIZED by using a priority queue.
+What's a Heap?
 An almost complete tree that satisfies the heap property: 
 in a max heap, for any given node C, if P is a parent node of C, then the key (the value) of P is greater than or equal to the key of C. 
 In a min heap, the key of P is less than or equal to the key of C The node at the "top" of the heap (with no parents) is called the root node.
-
 
 A heap can be thought of as a priority queue; 
 the most important node will always be at the top, and when removed, its replacement will be the most important. 
 This can be useful when coding algorithms that require certain things to processed in a complete order, 
 but when you don't want to perform a full sort or need to know anything about the rest of the nodes. 
-
-=> For instance, a well-known algorithm for finding the shortest distance between nodes in a graph, Dijkstra's Algorithm, can be optimized by using a priority queue.
 
 ########################################################################################################################################################################################################
 
@@ -87,10 +81,9 @@ il met à jour cette dernière.
 
 
 °°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°°
--------------------------------------------------------------------- LINK 
+=> L'algorithme de Dijkstra, peut être optimisé en utilisant une file d'attente prioritaire => en utilisant heap.
 
-Heap: https://www.youtube.com/watch?v=2DmK_H7IdTo&ab_channel=MichaelSambol
-
+Heap: 
 Un arbre presque complet qui satisfait la propriété des heaps : 
 dans un max heap, pour tout nœud C donné, si P est un nœud parent de C, alors la clé (la valeur) de P est supérieure ou égale à la clé de C. 
 Dans un min heap, la clé de P est inférieure ou égale à la clé de C Le nœud au « sommet » du heap (sans parents) est appelé le nœud racine.
@@ -100,8 +93,3 @@ Un heap peut être considéré comme une file d'attente prioritaire ;
 le nœud le plus important sera toujours au sommet, et une fois supprimé, son remplacement sera le plus important. 
 Cela peut être utile lors du codage d'algorithmes qui nécessitent le traitement de certaines choses dans un ordre complet, 
 mais lorsque vous ne souhaitez pas effectuer un tri complet ou que vous avez besoin de savoir quoi que ce soit sur le reste des nœuds. 
-
-=> L'algorithme de Dijkstra, peut être optimisé en utilisant une file d'attente prioritaire => en utilisant heap.
-
-
-
