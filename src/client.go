@@ -68,6 +68,10 @@ func readConnection(conn net.Conn) {
 				fmt.Println("Reached EOF on server connection.")
 				break
 			}
+
+			//listen for reply
+			message, _ := bufio.NewReader(conn).ReadString('\n')
+			fmt.Print("Message from server : " + message)
 		}
 	}
 }

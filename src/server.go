@@ -14,6 +14,7 @@ import (
 	"strconv"
 	"time"
     "math/rand"
+    "strings"
 )
 
 // START heap definition
@@ -323,6 +324,14 @@ func handleConnection(conn net.Conn, graph *graph) {
 		stringDestination := string(take[1])
 		fmt.Println(graph.getPath(stringOrigin, stringDestination))
 		fmt.Println(" ")
+
+        // for reply
+        AAA,BBB := graph.getPath(stringOrigin, stringDestination)
+        t := strconv.Itoa(AAA)
+        justString := strings.Join(BBB, " ")
+        newmessage := strings.ToUpper("Distance : " + t + " - Path : " + justString)
+        conn.Write([]byte(newmessage + "\n"))
+
 	}
 
 	fmt.Println("Client at " + remoteAddr + " disconnected.")
