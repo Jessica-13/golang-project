@@ -10,6 +10,7 @@ We implement this algorithm through a client-server format. This allows several 
 - client.go <br> 
 - server.go <br>
 
+<hr />
 
 ## Description of the Dijkstra's algorithm
 The algorith picks the unvisited node with the lowest distance, calculates the distance through it to each unvisited neighbor,and updates the neighbor's distance if smaller.
@@ -41,6 +42,7 @@ An almost complete tree that satisfies the heap property:
 A heap can be thought of as a priority queue; the most important node will always be at the top, and when removed, its replacement will be the most important. 
 This can be useful when coding algorithms that require certain things to processed in a complete order,but when you don't want to perform a full sort or need to know anything about the rest of the nodes. 
 
+<hr />
 
 ## Implementation
 First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client connect to the server from the default port 8000.</em>
@@ -60,7 +62,21 @@ Tested on
 ```
 go v1.17
 ```
+<hr />
 
 ## Credits
 
+<strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences, Department of Telecommunications, Services and Uses, 3TC, group 1.
+
+Project related to the ELP module (Ecosystème des langages de programmation) - Golang.
+
+### Referent Professor
+
+Pierre François
+
+### Authors
+
+SALMA Bahar
+SPERA Jessica
+WAN Zihao
 
