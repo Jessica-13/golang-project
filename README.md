@@ -74,6 +74,8 @@ The solution is accessible by both server.go and client.go.
 
 Tested on
 ```
+go1.17.5 linux/amd64
+
 go v1.17
 ```
 <hr />
