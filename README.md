@@ -49,18 +49,23 @@ First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client
 The program establishes a random graph which is displayed in the server terminal. 
 Each vertex is assigned a random distance assignment between 1 and 20, and random connections are assigned between the vertices. <br>
 
+<p align="center">
 <a href="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A.svg" /></a>
-
+</p>
 
 Then, call client.go by `go run client.go -host localhost -port 8000` in a new terminal.
 Once a client has connected, the server terminal will display it. By entering two vertices in the client's terminal, the program allows to obtain the shortest distance between any two vertices entered by the user and shows which vertices the path of this shortest distance passes through. 
 If the user enters a non-existent vertex, the distance will be displayed as 0.
 
+<p align="center">
 <a href="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT.svg" /></a>
+</p>
 
 The server can connect to multiple clients. 
 
+<p align="center">
 <a href="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7.svg" /></a>
+</p>
 
 The solution is accessible by both server.go and client.go.
 
@@ -75,11 +80,8 @@ go v1.17
 
 ## Credits
 
-![alt text](http://www.insa-lyon.fr/sites/www.insa-lyon.fr/files/logo-coul.jpg)
-
 <p align="center">
-  <img src="/media/jess/Windows-SSD/Users/jessi/OneDrive/Desktop/CTC/usage_logo.jpg" width="350" title="hover text">
-  <img src="/media/jess/Windows-SSD/Users/jessi/OneDrive/Desktop/CTC/usage_logo.jpg" width="350" alt="accessibility text">
+  <img src="http://www.insa-lyon.fr/sites/www.insa-lyon.fr/files/logo-coul.jpg" width="350" alt="accessibility text">
 </p>
 
 <strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences, Department of Telecommunications, Services and Uses, 3TC, Group 1.
