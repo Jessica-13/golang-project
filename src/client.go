@@ -14,7 +14,7 @@ import (
 	"time"
 )
 
-var host = flag.String("host", "localhost", "The hostname or IP to connect to; defaults to \"localhost\".")
+var host = flag.String("host", "localhost", "The hostname or IP address to connect to; defaults to \"localhost\".")
 var port = flag.Int("port", 8000, "The port to connect to; defaults to 8000.")
 
 func main() {
