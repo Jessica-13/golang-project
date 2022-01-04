@@ -7,8 +7,8 @@ We implement this algorithm through a client-server format. This allows several 
 
 ### Files :
 
-- client.go <br> 
-- server.go <br>
+- src/client.go <br> 
+- src/server.go <br>
 
 <hr />
 
