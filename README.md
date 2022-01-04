@@ -96,7 +96,7 @@ Project related to the ELP module (Ecosystème des langages de programmation) - 
 
 ### Referent Professor
 
-Pierre François
+FRANÇOIS Pierre
 
 ### Authors
 
