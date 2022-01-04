@@ -267,7 +267,6 @@ func main() {
     for i := 0; i < 10; i++ {   // all vertices linked (x10)
         vertex2 := RandStringBytes(1)
         distance := rand.Intn(max - min) + min
-        //fmt.Println(vertex1, vertex2, distance)
         graph.addEdge(vertex1, vertex2, distance)
         vertex1 = vertex2
     }	
