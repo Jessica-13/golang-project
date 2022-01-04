@@ -94,7 +94,7 @@ Pierre François
 
 ### Authors
 
-SALMA Bahar
-SPERA Jessica
-WAN Zihao
+SALMA Bahar <br/>
+SPERA Jessica <br/>
+WAN Zihao <br/>
 
