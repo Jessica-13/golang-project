@@ -84,7 +84,8 @@ go v1.17
   <img src="http://www.insa-lyon.fr/sites/www.insa-lyon.fr/files/logo-coul.jpg" width="350" alt="accessibility text">
 </p>
 
-<strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences, Department of Telecommunications, Services and Uses, 3TC, Group 1.
+<strong>INSA Lyon</strong>, Lyon Institute of Applied Sciences <br/> 
+Department of Telecommunications, Services and Uses, 3TC, Group 1
 
 Project related to the ELP module (Ecosystème des langages de programmation) - Golang.
 
