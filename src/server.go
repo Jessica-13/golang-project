@@ -127,7 +127,6 @@ func (h *heap) pop() path {
 }
 // END heap definition
 
-
 // START graphe definition
 
 /* Definition of "edge" structure :
@@ -245,7 +244,6 @@ var okOrigin bool
 var okDestination bool
 
 // ---
-
 
 var addr = flag.String("addr", "", "The address to listen to; default is \"\" (all interfaces).")
 var port = flag.Int("port", 8000, "The port to listen on; default is 8000.")
