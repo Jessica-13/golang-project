@@ -46,7 +46,7 @@ This can be useful when coding algorithms that require certain things to process
 
 ## Implementation
 
-`The proposed Demo is made for simplicity with a graph with 10 vertex.`
+`The proposed Demo is made for simplicity with a graph with 5 vertex.`
 
 First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client connect to the server from the default port 8000.</em>
 The program establishes a random graph which is displayed in the server terminal. 
