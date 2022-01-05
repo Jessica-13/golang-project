@@ -37,7 +37,7 @@ func main() {
 
 	for {
 		reader := bufio.NewReader(os.Stdin)
-		fmt.Println("Please enter origin vertex and the destination vertex like 'ab' ")
+		fmt.Println("Please enter int origin vertex and the int destination vertex like '10 20' ")
 		fmt.Print("> ")
 		text, _ := reader.ReadString('\n')
 

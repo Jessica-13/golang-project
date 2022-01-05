@@ -251,15 +251,16 @@ func main() {
    
     graph := newGraph() 
 
-   
-    timeI := time.Now()     // TIME START
     min := 1
     max := 30
 
-    nbVertexGraph := 1000
+    nbVertexGraph := 5
 
     // MAKE THE GRAPH 
 
+    
+    // WITHOUT GO ROUTINES
+    timeI := time.Now()     // TIME START
     for vertex1 := 0; vertex1 < nbVertexGraph; vertex1++ {      // nombre vertex
         for vertex2 := vertex1; vertex2 < nbVertexGraph; vertex2++ {      // graph complet
             vertex1S := strconv.FormatInt(int64(vertex1), 10)
@@ -274,7 +275,7 @@ func main() {
 
     timeF := time.Now()     // TIME STOP
     fmt.Println("Difference time make algo : ", timeF.Sub(timeI))       // OUTPUT TIME
-
+    
 	// ---
 
 	flag.Parse()
