@@ -53,7 +53,7 @@ The program establishes a random graph which is displayed in the server terminal
 Each vertex is assigned a random distance assignment between 1 and 20, and random connections are assigned between the vertices. <br>
 
 <p align="center">
-<a href="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/k0YpaYoXPArwKaKAxiXdmcE2A.svg" /></a>
+<a href="https://asciinema.org/a/7sfXrE7Nv1RKZqayim3LrBK05" target="_blank"><img src="https://asciinema.org/a/7sfXrE7Nv1RKZqayim3LrBK05.svg" /></a>
 </p>
 
 Then, call client.go by `go run client.go -host localhost -port 8000` in a new terminal.
@@ -61,13 +61,13 @@ Once a client has connected, the server terminal will display it. By entering tw
 If the user enters a non-existent vertex, the distance will be displayed as 0.
 
 <p align="center">
-<a href="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/RL8M8QD11rzIzdNCmKwrWFJbT.svg" /></a>
+<a href="https://asciinema.org/a/0nD05iJzjJ3Dr0Cg6w042TNcf" target="_blank"><img src="https://asciinema.org/a/0nD05iJzjJ3Dr0Cg6w042TNcf.svg" /></a>
 </p>
 
 The server can connect to multiple clients. 
 
-<p align="center">
-<a href="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7?autoplay=1?loop=1" target="_blank"><img src="https://asciinema.org/a/odi27lUT4CenVoppmNjeJ8Ky7.svg" /></a>
+<p align="center"> 
+<a href="https://asciinema.org/a/FnaeK7XyqbqAaWKyxHPKBsDbH" target="_blank"><img src="https://asciinema.org/a/FnaeK7XyqbqAaWKyxHPKBsDbH.svg" /></a>
 </p>
 
 The solution is accessible by both server.go and client.go.
