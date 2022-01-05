@@ -186,6 +186,7 @@ func (g *graph) getEdges(node string) []edge {
     return g.nodes[node]
 }
 
+
 func (g *graph) getPath(origin, destiny string) (int, []string) {   //gets the shortest path between origin and destiny
     h := newHeap()                                                  // definition of a new heap named h -> call fonction newHeap()
     h.push(path{value: 0, nodes: []string{origin}}) 
@@ -225,16 +226,6 @@ func (g *graph) getPath(origin, destiny string) (int, []string) {   //gets the s
 // END graph definition
 
 
-// MAKE BIGGER GRAPH :
-const letterBytes = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"      // 52 characters
-
-func RandStringBytes(n int) string {
-    b := make([]byte, n)
-    for i := range b {
-        b[i] = letterBytes[rand.Intn(len(letterBytes))]
-    }
-    return string(b)
-}
 
 var originVertexInput string 
 var destinationVertexInput string
@@ -260,22 +251,29 @@ func main() {
    
     graph := newGraph() 
 
+   
+    timeI := time.Now()     // TIME START
     min := 1
-    max := 20
-    vertex1 := RandStringBytes(1)
-    for i := 0; i < 10; i++ {   // all vertices linked (x10)
-        vertex2 := RandStringBytes(1)
-        distance := rand.Intn(max - min) + min
-        graph.addEdge(vertex1, vertex2, distance)
-        vertex1 = vertex2
-    }	
+    max := 30
 
-    for i := 0; i < 20; i++ {   // more random connections (x20)
-        vertex1 := RandStringBytes(1)
-        vertex2 := RandStringBytes(1)
-        distance := rand.Intn(max - min) + min
-        graph.addEdge(vertex1, vertex2, distance)
+    nbVertexGraph := 1000
+
+    // MAKE THE GRAPH 
+
+    for vertex1 := 0; vertex1 < nbVertexGraph; vertex1++ {      // nombre vertex
+        for vertex2 := vertex1; vertex2 < nbVertexGraph; vertex2++ {      // graph complet
+            vertex1S := strconv.FormatInt(int64(vertex1), 10)
+            vertex2S := strconv.FormatInt(int64(vertex2), 10)
+            distance := 0
+            if vertex1 != vertex2 {
+                distance = rand.Intn(max - min) + min
+            }
+            graph.addEdge(vertex1S, vertex2S, distance)
+        }
     }
+
+    timeF := time.Now()     // TIME STOP
+    fmt.Println("Difference time make algo : ", timeF.Sub(timeI))       // OUTPUT TIME
 
 	// ---
 
@@ -315,13 +313,17 @@ func handleConnection(conn net.Conn, graph *graph) {
 
 		take := handleMessage(scanner.Text(), conn)      // Taking input from client 
 		fmt.Print("Shortest path calculation result (distance - path) : ")
-				
-		stringOrigin := string(take[0])
-		stringDestination := string(take[1])
+         
+        takeSplit := strings.Split(take, " ")   // split the input into origin and destination
+        
+        stringOrigin := takeSplit[0]
+		stringDestination := takeSplit[1]
+
+        // OUTPUT INTO SERVER
 		fmt.Println(graph.getPath(stringOrigin, stringDestination))
 		fmt.Println(" ")
 
-        // for reply
+        // for reply - OUTPUT INTO CLIENT
         AAA,BBB := graph.getPath(stringOrigin, stringDestination)
         t := strconv.Itoa(AAA)
         justString := strings.Join(BBB, " ")
