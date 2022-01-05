@@ -106,4 +106,4 @@ WAN Zihao <br/>
 
 
 
-<em>  ℹ️ For more information on the project, refer to the Wiki</em>
+<em>  ℹ️ For more information on the project, refer to the [Wiki](https://github.com/Jessica-13/golang-project/wiki)</em>
