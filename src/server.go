@@ -325,6 +325,7 @@ func handleConnection(conn net.Conn, graph *graph) {
 		fmt.Println(" ")
 
         // for reply - OUTPUT INTO CLIENT
+	// The shortest distance and the nodes of the shortest path returned by the getPath function are converted into string form and returned to the client
         AAA,BBB := graph.getPath(stringOrigin, stringDestination)
         t := strconv.Itoa(AAA)
         justString := strings.Join(BBB, " ")
