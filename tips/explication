@@ -3,11 +3,11 @@
 
 -------------------------------------------------------------------- ENGLISH VERSION
 
-Dijkstra's algorithm to find the shortest path between two points: A and B. 
+Dijkstra's algorithm finds the shortest path between two points: A and B. 
 
 It picks the unvisited node with the lowest distance, 
 calculates the distance through it to each unvisited neighbor, 
-and updates the neighbor's distance if smaller.
+and finally updates the neighbor's distance if smaller.
 
 STEPS:
  1) Mark all nodes unvisited. 
