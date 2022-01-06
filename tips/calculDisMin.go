@@ -11,9 +11,9 @@ var getShortPath = [nbVertex]int{    }
 
 func main() {
  
-    var TablePathMin int       //Store the smallest value of the node in the getShortPath that is not traversed
-    var Vx int                 //Store the subscript of the node in the getShortPath that is not traversed
-    var isgetPath [MAXVEX]bool //Record whether the node has found the minimal path from v0 to vx
+    var TablePathMin int       //Stores the smallest value of the node in the getShortPath that is unvisited
+    var Vx int                 //Stores the subscript of the node in the getShortPath that is unvisited
+    var isgetPath [MAXVEX]bool //Records whether the node has found the minimal path from v0 to vx or not
  
     // Get the array of weights for the row v0
     for v := 0; v < len(   ); v++ {
@@ -26,7 +26,7 @@ func main() {
     for v := 1; v < len(  ); v++ {
         TablePathMin = maxWeight
  
-        //find the smallest value of the node in the getShortPath that is not traversed
+        //finds the smallest value of the node in the getShortPath that is unvisited
         for w := 0; w < len(   ); w++ {
             if !isgetPath[w] && getShortPath[w] < TablePathMin {
                 Vx = w
