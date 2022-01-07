@@ -145,9 +145,9 @@ A map cannot be sorted directly.
 But if we get a slice of the keys from a map, 
 we can sort that slice and loop over it, accessing the map's values.
 
-To get an element, we access it by name. 
+To get an element, we access it by its name. 
 To loop over the entire map's contents, we use a for-loop—each key 
-and value can be accessed separately.
+and values can be accessed separately.
 */
 
 /* Definition of "graph" structure :
@@ -325,6 +325,7 @@ func handleConnection(conn net.Conn, graph *graph) {
 		fmt.Println(" ")
 
         // for reply - OUTPUT INTO CLIENT
+	// The shortest distance and the nodes of the shortest path returned by the getPath function are converted into string form and returned to the client
         AAA,BBB := graph.getPath(stringOrigin, stringDestination)
         t := strconv.Itoa(AAA)
         justString := strings.Join(BBB, " ")
