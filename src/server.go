@@ -261,12 +261,12 @@ func main() {
     
     // WITHOUT GO ROUTINES
     timeI := time.Now()     // TIME START
-    for vertex1 := 0; vertex1 < nbVertexGraph; vertex1++ {      // nombre vertex
-        for vertex2 := vertex1; vertex2 < nbVertexGraph; vertex2++ {      // graph complet
-            vertex1S := strconv.FormatInt(int64(vertex1), 10)
-            vertex2S := strconv.FormatInt(int64(vertex2), 10)
+    for vertex1B := 0; vertex1B < nbVertexGraph; vertex1B++ {      // nombre vertex
+        for vertex2B := vertex1B; vertex2B < nbVertexGraph; vertex2B++ {      // graph complet
+            vertex1S := strconv.FormatInt(int64(vertex1B), 10)
+            vertex2S := strconv.FormatInt(int64(vertex2B), 10)
             distance := 0
-            if vertex1 != vertex2 {
+            if vertex1B != vertex2B {
                 distance = rand.Intn(max - min) + min
             }
             graph.addEdge(vertex1S, vertex2S, distance)
@@ -274,7 +274,7 @@ func main() {
     }
 
     timeF := time.Now()     // TIME STOP
-    fmt.Println("Difference time make algo : ", timeF.Sub(timeI))       // OUTPUT TIME
+    fmt.Println("Time for making graph : ", timeF.Sub(timeI))       // OUTPUT TIME
     
 	// ---
 
