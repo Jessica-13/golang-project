@@ -46,7 +46,7 @@ This can be useful when coding algorithms that require certain things to process
 
 ## Implementation
 
-`The proposed Demo is made for simplicity with a graph with 5 vertex.`
+`The proposed Demo is made for simplicity with a graph with 5 vertex. The graph is built as a complete graph.`
 
 First, call server.go by `go run server.go -port 8000` in a terminal. <em>Client connect to the server from the default port 8000.</em>
 The program establishes a random graph which is displayed in the server terminal. 
@@ -64,7 +64,7 @@ If the user enters a non-existent vertex, the distance will be displayed as 0.
 <a href="https://asciinema.org/a/0nD05iJzjJ3Dr0Cg6w042TNcf" target="_blank"><img src="https://asciinema.org/a/0nD05iJzjJ3Dr0Cg6w042TNcf.svg" /></a>
 </p>
 
-The server can connect to multiple clients. 
+The server can connect to multiple clients. To log out, click on `Ctrl + c`.
 
 <p align="center"> 
 <a href="https://asciinema.org/a/FnaeK7XyqbqAaWKyxHPKBsDbH" target="_blank"><img src="https://asciinema.org/a/FnaeK7XyqbqAaWKyxHPKBsDbH.svg" /></a>
